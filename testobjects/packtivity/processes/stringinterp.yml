@@ -1,0 +1,2 @@
+process_type: 'string-interpolated-cmd'
+cmd: '/resources/download.py {dataset} {outDir} {outList}'

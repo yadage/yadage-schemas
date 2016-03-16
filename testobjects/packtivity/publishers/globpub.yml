@@ -1,0 +1,3 @@
+publisher_type: fromglob-pub
+globexpression: '*.pool.root'
+outputkey: akey

@@ -1,0 +1,4 @@
+scheduler_type: 'map-from-ctx'
+step: {$ref: '../../packtivity/packtivities/example_one.yml'}
+map_parameter: parameter_two
+to_input: input

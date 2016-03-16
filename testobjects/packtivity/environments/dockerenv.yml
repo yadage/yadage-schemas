@@ -1,0 +1,9 @@
+environment_type: 'docker-encapsulated'
+image: busybox
+imagetag: latest
+envscript: '/tosource/script.sh'
+env:
+  ROOTSYS: /usr/bin/local
+resources:
+  - CVMFS
+  - GRIDProxy

@@ -1,2 +1,2 @@
-scheduler_type: 'singlestep-from-context'
+scheduler_type: 'single-from-context'
 step: {$ref: '../../packtivity/packtivities/example_one.yml'}

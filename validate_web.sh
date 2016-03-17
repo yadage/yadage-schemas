@@ -17,7 +17,7 @@ packtivity-validate testobjects/packtivity/processes/stringinterp.yml -c from-gi
 packtivity-validate testobjects/packtivity/packtivities/example_one.yml -c from-github -n packtivity/packtivity-schema
 
 #schedulers:
-packtivity-validate -s testobjects/yadage/schedulers singlestep-from-ctx.yml -c from-github -n yadage/scheduler/single-from-ctx-schema
+packtivity-validate -s testobjects/yadage/schedulers single-from-ctx.yml -c from-github -n yadage/scheduler/single-from-ctx-schema
 packtivity-validate -s testobjects/yadage/schedulers zip-from-dep.yml -c from-github -n yadage/scheduler/zip-from-dep-schema
 packtivity-validate -s testobjects/yadage/schedulers reduce-from-dep.yml -c from-github -n yadage/scheduler/reduce-from-dep-schema
 packtivity-validate -s testobjects/yadage/schedulers map-from-dep.yml -c from-github -n yadage/scheduler/map-from-dep-schema

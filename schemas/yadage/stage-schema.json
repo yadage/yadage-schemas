@@ -24,6 +24,7 @@
         {"$ref":"scheduler/single-from-ctx-schema.json#"},
         {"$ref":"scheduler/map-from-dep-schema.json#"},
         {"$ref":"scheduler/reduce-from-dep-schema.json#"}
+        {"$ref":"scheduler/zip-from-dep-schema.json#"}
       ]
     }
   },

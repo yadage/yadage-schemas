@@ -7,7 +7,7 @@
     "scheduler_type": {
       "type": "string",
       "enum": [
-        "single-from-context"
+        "single-from-ctx"
       ]
     },
     "step": {

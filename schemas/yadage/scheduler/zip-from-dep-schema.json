@@ -24,7 +24,7 @@
           },
           "zip_with":{
             "type":"array",
-            "items": {
+            "items":{
               "type":"string"
             }
           },
@@ -34,7 +34,13 @@
               "type":"string"
             }
           }
-        }
+        },
+        "required": [
+          "zip_with",
+          "outputs",
+          "from_stages"
+        ]
+        
       }
     }
   },

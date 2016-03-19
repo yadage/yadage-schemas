@@ -22,7 +22,8 @@
       "environment": {
           "type": "object",
           "oneOf":[
-            {"$ref": "environment/docker-enc-schema.json#"}
+            {"$ref": "environment/docker-enc-schema.json#"},
+            {"$ref": "environment/noop-env-schema.json#"}
           ]
       }
   },

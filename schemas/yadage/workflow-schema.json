@@ -4,12 +4,6 @@
   "title": "Yadage Workflow",
   "additionalProperties": false,
   "properties": {
-    "context": {
-      "type":"object",
-      "oneOf":[
-        {"$ref": "../utils/shallow-primitive-schema.json#"}
-      ]
-    },
     "stages": {
       "type": "array",
       "items": {
@@ -18,7 +12,6 @@
     }
   },
   "required":[
-    "context",
     "stages"
   ]
 }

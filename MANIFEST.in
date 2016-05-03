@@ -1,1 +1,1 @@
-recursive-include recastcap/capschemas *
+recursive-include capschemas *

@@ -1,6 +1,0 @@
-scheduler_type: 'map-from-dep'
-step: {$ref: '../../packtivity/packtivities/example_one.yml'}
-outputs: acq_out
-from_stages:
-  - data_acquisition
-to_input: input

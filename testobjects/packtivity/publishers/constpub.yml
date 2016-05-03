@@ -1,4 +1,0 @@
-publisher_type: constant-pub
-publish:
-  firstkey: single_value
-  secondkye: ['more','than','one','value']

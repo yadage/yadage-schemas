@@ -1,2 +1,0 @@
-scheduler_type: 'single-from-ctx'
-step: {$ref: '../../packtivity/packtivities/example_one.yml'}

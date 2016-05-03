@@ -1,6 +1,0 @@
-scheduler_type: 'reduce-from-dep'
-step: {$ref: '../../packtivity/packtivities/example_one.yml'}
-outputs: map.*
-from_stages:
-  - mapstage
-to_input: in

@@ -1,6 +1,0 @@
-firstkey: single_value
-secondkye: ['more','than','one','value']
-thirdkey: ~
-fourthkey: [1.0,2,"string",~]
-fivekey: 1
-sixkey: 3.14159

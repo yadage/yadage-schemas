@@ -1,6 +1,0 @@
-name: mappingstage
-dependencies:
-  - mapstage
-parameters:
-  out: mergedfile.root
-scheduler: {$ref: '../schedulers/map-from-dep.yml'}

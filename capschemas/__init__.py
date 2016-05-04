@@ -22,7 +22,7 @@ def extend_with_default(validator_class):
                 instance['dependencies'] = {
                     "dependency_type" : "jsonpath_ready",
                     "expressions": instance["dependencies"]
-                }
+                    }
 
 
         for prop, subschema in properties.iteritems():
@@ -33,7 +33,7 @@ def extend_with_default(validator_class):
             validator, properties, instance, schema,
         ):
             yield error
-
+            
     return validators.extend(
         validator_class, {"properties" : set_defaults},
     )
@@ -42,8 +42,11 @@ DefaultValidatingDraft4Validator = extend_with_default(Draft4Validator)
 
 def loader(toplevel):
     base_uri = None
-    if toplevel == 'from-github':
-        base_uri = 'https://raw.githubusercontent.com/lukasheinrich/yadage-workflows/master/'
+    if toplevel.startswith('from-github'):
+        within = toplevel.split('/',1)[-1]
+        base_uri = 'https://raw.githubusercontent.com/lukasheinrich/yadage-workflows/master/{}'.format(within)
+    elif toplevel.startswith('http'):
+        base_uri = toplevel
     else:
         base_uri = 'file://' + os.path.abspath(toplevel) + '/'
     
@@ -61,13 +64,13 @@ def loader(toplevel):
                 raise RuntimeError
     def load(uri):
         full_uri = '{}/{}'.format(base_uri,uri)
-        log.debug('trying to load uri: %s',full_uri)
-        return jsonref.load_uri(full_uri, base_uri = base_uri, loader = yamlloader)
+        log.debug('trying to load rel: %s full uri: %s base %s',uri,full_uri,base_uri)
+        return jsonref.load_uri(full_uri, base_uri = full_uri, loader = yamlloader)
     return load
 
 def validator(schema_name,schemadir):
     schemabase = None
-    if schemadir == 'from-github':
+    if schemadir=='from-github':
         schemabase = 'https://raw.githubusercontent.com/lukasheinrich/cap-schemas/master/schemas'
     else:
         schemabase = 'file://'+os.path.abspath(schemadir)

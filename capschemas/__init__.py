@@ -50,6 +50,9 @@ def loader(toplevel):
     else:
         base_uri = 'file://' + os.path.abspath(toplevel) + '/'
     
+    if not base_uri.endswith('/'):
+        base_uri = base_uri + '/'
+    
     def yamlloader(uri):
         try:
             log.debug('trying to get uri %s',uri)
@@ -65,7 +68,7 @@ def loader(toplevel):
     def load(uri):
         full_uri = '{}/{}'.format(base_uri,uri)
         log.debug('trying to load rel: %s full uri: %s base %s',uri,full_uri,base_uri)
-        return jsonref.load_uri(full_uri, base_uri = full_uri, loader = yamlloader)
+        return jsonref.load_uri(full_uri, base_uri = base_uri, loader = yamlloader)
     return load
 
 def validator(schema_name,schemadir):

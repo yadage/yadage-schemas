@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
-  "Title": "Local Process Environment for Testing",
+  "title": "Local Process Environment for Testing",
   "properties": {
     "environment_type": {
       "type": "string",

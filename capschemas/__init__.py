@@ -16,6 +16,15 @@ def extend_with_default(validator_class):
     validate_properties = validator_class.VALIDATORS["properties"]
     
     def set_defaults(validator, properties, instance, schema):
+        if schema.get('title',None)=='Yadage Stage':
+            if type(instance['dependencies'])==list:
+                log.debug('dependencies provided as list, assume jsonpath_ready predicate')
+                instance['dependencies'] = {
+                    "dependency_type" : "jsonpath_ready",
+                    "expressions": instance["dependencies"]
+                }
+
+
         for prop, subschema in properties.iteritems():
             if "default" in subschema:
                 instance.setdefault(prop, subschema["default"])

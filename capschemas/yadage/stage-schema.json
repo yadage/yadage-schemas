@@ -8,8 +8,10 @@
       "type": "string"
     },
     "dependencies": {
-      "type": "array",
-      "default":[]
+      "type": "object",
+      "oneOf":[
+        {"$ref":"predicates/jsonpathready-schema.json#"}
+      ]
     },
     "scheduler": {
       "type": "object",

@@ -73,6 +73,8 @@ def loader(toplevel):
 
 def validator(schema_name,schemadir):
     schemabase = None
+    if schemadir is None:
+        schemabase = capschemas.schemadir
     if schemadir=='from-github':
         schemabase = 'https://raw.githubusercontent.com/lukasheinrich/cap-schemas/master/schemas'
     else:

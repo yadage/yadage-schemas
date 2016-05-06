@@ -11,6 +11,7 @@ import pkg_resources
 log = logging.getLogger(__name__)
 
 schemadir = pkg_resources.resource_filename('capschemas','')
+SCHEMADIR = schemadir
 
 def extend_with_default(validator_class):
     validate_properties = validator_class.VALIDATORS["properties"]
@@ -73,13 +74,13 @@ def loader(toplevel):
 
 def validator(schema_name,schemadir):
     schemabase = None
-    if schemadir is None:
-        schemabase = capschemas.schemadir
-    if schemadir=='from-github':
+    if schemadir == None:
+        schemabase = 'file://'+os.path.abspath(SCHEMADIR)
+    elif schemadir=='from-github':
         schemabase = 'https://raw.githubusercontent.com/lukasheinrich/cap-schemas/master/schemas'
     else:
         schemabase = 'file://'+os.path.abspath(schemadir)
-
+        
     abspath = '{}/{}.json'.format(schemabase,schema_name)
     this_base_uri = abspath.rsplit('/',1)[0]+'/'
 

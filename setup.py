@@ -4,7 +4,7 @@ setup(
     author = 'Lukas Heinrich',
     author_email = 'lukas.heinrich@gmail.com',
     name = 'cap-schemas',
-    version = '0.1.0',
+    version = '0.2.0',
     description = 'schemas for analysis preservation',
     include_package_data = True,
     packages = find_packages(),

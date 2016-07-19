@@ -11,10 +11,7 @@
       ]
     },
     "publish": {
-      "type": "object",
-      "oneOf":[
-        {"$ref": "../../utils/shallow-primitive-schema.json#"}
-      ]
+      "type": "object"
     }
   },
   "required": [

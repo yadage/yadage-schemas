@@ -1,24 +1,29 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "type":"object",
-  "additionalProperties": false,
-  "patternProperties":{
-    "^[A-Za-z0-9_]*$":{
-      "oneOf":[
-        {"type":"string"},
-        {"type":"array"},
-        {"type":"number"},
-        {
-          "type":"object",
-          "additionalProperties": false,
-          "properties": {
-            "stages": {"type":"string"},
-            "output": {"type":"string"},
-            "unwrap": {"type":"boolean"},
-            "flatten":{"type":"boolean"}
+  "type":"array",
+  "title": "Parameter Selection",
+  "items":{
+    "type":"object",
+    "additionalProperties": false,
+    "properties": {
+      "key":{"type":"string"},
+      "value":{
+        "oneOf":[
+          {"type":"string"},
+          {"type":"array"},
+          {"type":"number"},
+          {
+            "type":"object",
+            "additionalProperties": false,
+            "properties": {
+              "stages": {"type":"string"},
+              "output": {"type":"string"},
+              "unwrap": {"type":"boolean"},
+              "flatten":{"type":"boolean"}
+            }
           }
-        }
-      ]
+        ]
+      }
     }
   }
 }

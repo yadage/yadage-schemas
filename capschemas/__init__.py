@@ -15,7 +15,7 @@ SCHEMADIR = schemadir
 
 def extend_with_default(validator_class):
     validate_properties = validator_class.VALIDATORS["properties"]
-    
+
     def set_defaults(validator, properties, instance, schema):
         if schema.get('title',None)=='Yadage Stage':
             if type(instance['dependencies'])==list:
@@ -25,16 +25,20 @@ def extend_with_default(validator_class):
                     "expressions": instance["dependencies"]
                     }
 
+        if "Scheduler" in schema.get('title',''):
+            if(type(instance['parameters'])==dict):
+                asarray = [{'key':k, 'value':v} for k,v in instance['parameters'].iteritems()]
+                instance['parameters'] = asarray
 
         for prop, subschema in properties.iteritems():
             if "default" in subschema:
                 instance.setdefault(prop, subschema["default"])
-                
+
         for error in validate_properties(
             validator, properties, instance, schema,
         ):
             yield error
-            
+
     return validators.extend(
         validator_class, {"properties" : set_defaults},
     )
@@ -50,10 +54,10 @@ def loader(toplevel):
         base_uri = toplevel
     else:
         base_uri = 'file://' + os.path.abspath(toplevel) + '/'
-    
+
     if not base_uri.endswith('/'):
         base_uri = base_uri + '/'
-    
+
     def yamlloader(uri):
         try:
             log.debug('trying to get uri %s',uri)
@@ -80,7 +84,7 @@ def validator(schema_name,schemadir):
         schemabase = 'https://raw.githubusercontent.com/lukasheinrich/cap-schemas/master/schemas'
     else:
         schemabase = 'file://'+os.path.abspath(schemadir)
-        
+
     abspath = '{}/{}.json'.format(schemabase,schema_name)
     this_base_uri = abspath.rsplit('/',1)[0]+'/'
 

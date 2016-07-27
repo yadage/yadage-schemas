@@ -47,6 +47,17 @@ DefaultValidatingDraft4Validator = extend_with_default(Draft4Validator)
 
 def loader(toplevel):
     base_uri = None
+
+    if toplevel.startswith('from-cap'):
+        def caploader(uri):
+            recordnr = toplevel.split('/')[1]
+            import requests
+            print recordnr
+            data = requests.get('https://analysis-preservation-qa.cern.ch/api/records/{}'.format(recordnr),verify=False).json()
+            workflowinfo = {x['name']:x['workflow'] for x in data['metadata']['_metadata']['workflows']}
+            return workflowinfo[uri]
+        return caploader
+
     if toplevel.startswith('from-github'):
         within = toplevel.split('/',1)[-1]
         base_uri = 'https://raw.githubusercontent.com/lukasheinrich/yadage-workflows/master/{}'.format(within)

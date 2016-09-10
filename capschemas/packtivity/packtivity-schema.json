@@ -7,7 +7,9 @@
       "process": {
           "type": "object",
           "oneOf":[
-            {"$ref": "process/stringinterp-schema.json#"}
+            {"$ref": "process/stringinterp-schema.json#"},
+            {"$ref": "process/scriptproc-schema.json#"},
+            {"$ref": "process/manual-instructions-proc-schema.json#"}
           ]
       },
       "publisher": {
@@ -16,7 +18,8 @@
             {"$ref": "publisher/constant-pub-schema.json#"},
             {"$ref": "publisher/frompar-pub-schema.json#"},
             {"$ref": "publisher/fromyaml-pub-schema.json#"},
-            {"$ref": "publisher/fromglob-pub-schema.json#"}
+            {"$ref": "publisher/fromglob-pub-schema.json#"},
+            {"$ref": "publisher/manual-instructions-pub-schema.json#"}
           ]
       },
       "environment": {
@@ -24,7 +27,8 @@
           "oneOf":[
             {"$ref": "environment/noop-env-schema.json#"},
             {"$ref": "environment/localproc-schema.json#"},
-            {"$ref": "environment/docker-enc-schema.json#"}
+            {"$ref": "environment/docker-enc-schema.json#"},
+            {"$ref": "environment/manual-instructions-env-schema.json#"}
           ]
       }
   },

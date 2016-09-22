@@ -13,6 +13,11 @@
     "script": {
       "type": "string",
       "title": "Script"
+    },
+    "interpreter": {
+      "type": "string",
+      "title": "Interpreter",
+      "default":"sh"
     }
   },
   "required": [

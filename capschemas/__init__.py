@@ -27,7 +27,12 @@ def extend_with_default(validator_class):
 
         if "Scheduler" in schema.get('title',''):
             if(type(instance['parameters'])==dict):
-                asarray = [{'key':k, 'value':v} for k,v in instance['parameters'].iteritems()]
+                asarray = []
+                for k,v in instance['parameters'].iteritems():
+                    if type(v) == dict:
+                        v['expression_type'] = 'stage-output-selector'
+                    asarray.append({'key':k,'value':v})
+
                 instance['parameters'] = asarray
 
         for prop, subschema in properties.iteritems():

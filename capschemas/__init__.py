@@ -18,7 +18,7 @@ def extend_with_default(validator_class):
 
     def set_defaults(validator, properties, instance, schema):
         if schema.get('title',None)=='Yadage Stage':
-            if type(instance['dependencies'])==list:
+            if 'dependencies' in instance and type(instance['dependencies'])==list:
                 log.debug('dependencies provided as list, assume jsonpath_ready predicate')
                 instance['dependencies'] = {
                     "dependency_type" : "jsonpath_ready",

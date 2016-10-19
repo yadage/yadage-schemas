@@ -11,7 +11,11 @@
       "type": "object",
       "oneOf":[
         {"$ref":"predicates/jsonpathready-schema.json#"}
-      ]
+      ],
+      "default": {
+        "dependency_type": "jsonpath_ready",
+        "expressions": []
+      }
     },
     "scheduler": {
       "type": "object",

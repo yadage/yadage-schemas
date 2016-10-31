@@ -86,10 +86,13 @@ def loader(toplevel):
             except:
                 log.exception('loading error: cannot find URI %s',uri)
                 raise RuntimeError
-    def load(uri):
-        full_uri = '{}/{}'.format(base_uri,uri)
-        log.debug('trying to load rel: %s full uri: %s base %s',uri,full_uri,base_uri)
-        return jsonref.load_uri(full_uri, base_uri = base_uri, loader = yamlloader)
+    def load(source,initialload):
+        full_uri = '{}/{}'.format(base_uri,source)
+        log.debug('trying to load rel: %s full uri: %s base %s',source,full_uri,base_uri)
+        if initialload:
+            return jsonref.load_uri(full_uri, base_uri = base_uri, loader = yamlloader)
+        else:
+            return jsonref.JsonRef.replace_refs(source, base_uri = base_uri, loader = yamlloader)
     return load
 
 def validator(schema_name,schemadir):
@@ -108,9 +111,9 @@ def validator(schema_name,schemadir):
     resolver = jsonschema.RefResolver(this_base_uri, schema)
     return DefaultValidatingDraft4Validator(schema, resolver = resolver)
 
-def load(source, toplevel, schema_name, schemadir = None, validate = True):
+def load(source, toplevel, schema_name, schemadir = None, validate = True, initialload = True):
     load = loader(toplevel)
-    data = load(source)
+    data = load(source,initialload)
     if validate:
         validator(schema_name,schemadir).validate(data)
     return data

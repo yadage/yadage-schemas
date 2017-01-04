@@ -3,9 +3,9 @@ from setuptools import setup, find_packages
 setup(
     author = 'Lukas Heinrich',
     author_email = 'lukas.heinrich@gmail.com',
-    name = 'cap-schemas',
+    name = 'yadage-schemas',
     version = '0.4.5',
-    description = 'schemas for analysis preservation',
+    description = 'schemas for yadage and packtivity',
     include_package_data = True,
     packages = find_packages(),
     install_requires = [

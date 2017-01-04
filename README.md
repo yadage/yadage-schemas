@@ -8,4 +8,3 @@ Workflows defined this way can be read and executed by these packages:
 Packtivity: https://github.com/diana-hep/packtivity
 Yadage: https://github.com/lukasheinrich/yadage 
 
-The name is derived from the usage of these schemas in the CERN Analysis Preservation project.

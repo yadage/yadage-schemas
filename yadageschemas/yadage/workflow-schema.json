@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "title": "Yadage Workflow",
+  "additionalProperties": false,
+  "properties": {
+    "stages": {
+      "type": "array",
+      "items": {
+        "$ref": "stage-schema.json#"
+      }
+    }
+  },
+  "required":[
+    "stages"
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type":"array",
+  "title": "Parameter Selection",
+  "items":{
+    "type":"object",
+    "additionalProperties": false,
+    "properties": {
+      "key":{"type":"string"},
+      "value":{
+        "oneOf":[
+          {"type":"string"},
+          {"type":"array"},
+          {"type":"number"},
+          {
+            "type":"object",
+            "additionalProperties": false,
+            "properties": {
+              "expression_type": {
+                "type": "string",
+                "enum": [
+                  "stage-output-selector"
+                ]
+              },
+              "stages": {"type":"string"},
+              "output": {"type":"string"},
+              "unwrap": {"type":"boolean"},
+              "flatten":{"type":"boolean"}
+            },
+            "required": [
+              "expression_type"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

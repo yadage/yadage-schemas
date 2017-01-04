@@ -1,0 +1,41 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "title": "Packtivity Meta Description",
+  "additionalProperties": false,
+  "properties": {
+      "process": {
+          "type": "object",
+          "oneOf":[
+            {"$ref": "process/stringinterp-schema.json#"},
+            {"$ref": "process/scriptproc-schema.json#"},
+            {"$ref": "process/manual-instructions-proc-schema.json#"}
+          ]
+      },
+      "publisher": {
+          "type": "object",
+          "oneOf":[
+            {"$ref": "publisher/constant-pub-schema.json#"},
+            {"$ref": "publisher/frompar-pub-schema.json#"},
+            {"$ref": "publisher/fromyaml-pub-schema.json#"},
+            {"$ref": "publisher/fromglob-pub-schema.json#"},
+            {"$ref": "publisher/interpolated-pub-schema.json#"},
+            {"$ref": "publisher/manual-instructions-pub-schema.json#"}
+          ]
+      },
+      "environment": {
+          "type": "object",
+          "oneOf":[
+            {"$ref": "environment/noop-env-schema.json#"},
+            {"$ref": "environment/localproc-schema.json#"},
+            {"$ref": "environment/docker-enc-schema.json#"},
+            {"$ref": "environment/manual-instructions-env-schema.json#"}
+          ]
+      }
+  },
+  "required":[
+    "process",
+    "publisher",
+    "environment"
+  ]
+}

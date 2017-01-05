@@ -10,7 +10,7 @@ from jsonschema import Draft4Validator, validators
 import pkg_resources
 log = logging.getLogger(__name__)
 
-schemadir = pkg_resources.resource_filename('capschemas','')
+schemadir = pkg_resources.resource_filename('yadageschemas','')
 SCHEMADIR = schemadir
 
 def extend_with_default(validator_class):
@@ -50,6 +50,9 @@ def extend_with_default(validator_class):
 
 DefaultValidatingDraft4Validator = extend_with_default(Draft4Validator)
 
+
+FROMGITHUB_LOADBASE = https://raw.githubusercontent.com/lukasheinrich/yadage-workflows/master
+
 def loader(toplevel):
     base_uri = None
 
@@ -65,7 +68,7 @@ def loader(toplevel):
 
     if toplevel.startswith('from-github'):
         within = toplevel.split('/',1)[-1]
-        base_uri = 'https://raw.githubusercontent.com/lukasheinrich/yadage-workflows/master/{}'.format(within)
+        base_uri = '{}/{}'.format(FROMGITHUB_LOADBASE,within)
     elif toplevel.startswith('http'):
         base_uri = toplevel
     else:

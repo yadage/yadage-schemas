@@ -51,7 +51,7 @@ def extend_with_default(validator_class):
 DefaultValidatingDraft4Validator = extend_with_default(Draft4Validator)
 
 
-FROMGITHUB_LOADBASE = https://raw.githubusercontent.com/lukasheinrich/yadage-workflows/master
+FROMGITHUB_LOADBASE = 'https://raw.githubusercontent.com/lukasheinrich/yadage-workflows/master'
 
 def loader(toplevel):
     base_uri = None

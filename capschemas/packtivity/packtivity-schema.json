@@ -28,7 +28,8 @@
             {"$ref": "environment/noop-env-schema.json#"},
             {"$ref": "environment/localproc-schema.json#"},
             {"$ref": "environment/docker-enc-schema.json#"},
-            {"$ref": "environment/manual-instructions-env-schema.json#"}
+            {"$ref": "environment/manual-instructions-env-schema.json#"},
+            {"$ref": "environment/tarball.json#"},
           ]
       }
   },

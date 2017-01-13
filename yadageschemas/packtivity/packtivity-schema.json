@@ -19,6 +19,7 @@
             {"$ref": "publisher/frompar-pub-schema.json#"},
             {"$ref": "publisher/fromyaml-pub-schema.json#"},
             {"$ref": "publisher/fromglob-pub-schema.json#"},
+            {"$ref": "publisher/interpolated-pub-schema.json#"},
             {"$ref": "publisher/manual-instructions-pub-schema.json#"}
           ]
       },

@@ -53,6 +53,53 @@ DefaultValidatingDraft4Validator = extend_with_default(Draft4Validator)
 
 FROMGITHUB_LOADBASE = 'https://raw.githubusercontent.com/lukasheinrich/yadage-workflows/master'
 
+def generic_gitlab_cern_url(toplevel):
+    fields = toplevel.split(':')[1:]
+
+    if len(fields) > 1:
+        repo, subpath = fields
+    else:
+        repo = fields[0]
+        subpath = ''
+
+    repo = repo.split('@')
+    if len(repo) > 1:
+        repo, branch = repo
+    else:
+        repo = repo[0]
+        branch = 'master'
+
+    url = 'https://gitlab.cern.ch/{repo}/raw/{branch}'.format(repo = repo, branch = branch)
+    if subpath:
+        url += '/'+subpath
+    return url
+
+def generic_github_url(toplevel):
+    # format is github:<username/repo[@branch]>[:subpath]
+
+    fields = toplevel.split(':')[1:]
+
+    if len(fields) > 1:
+        repo, subpath = fields
+    else:
+        repo = fields[0]
+        subpath = ''
+
+    repo = repo.split('@')
+    if len(repo) > 1:
+        repo, branch = repo
+    else:
+        repo = repo[0]
+        branch = 'master'
+
+    url = 'https://raw.githubusercontent.com/{repo}/{branch}'.format(
+        repo = repo,
+        branch = branch,
+    )
+    if subpath:
+        url += '/'+subpath
+    return url
+
 def loader(toplevel):
     base_uri = None
 
@@ -71,6 +118,10 @@ def loader(toplevel):
         base_uri = '{}/{}'.format(FROMGITHUB_LOADBASE,within)
     elif toplevel.startswith('http'):
         base_uri = toplevel
+    elif toplevel.startswith('github'):
+        base_uri = generic_github_url(toplevel)
+    elif toplevel.startswith('gitlab-cern'):
+        base_uri = generic_gitlab_cern_url(toplevel)
     else:
         base_uri = 'file://' + os.path.abspath(toplevel) + '/'
 

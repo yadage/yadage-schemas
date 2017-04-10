@@ -1,0 +1,46 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "title": "Umbrella Environment",
+  "additionalProperties": false,
+  "properties": {
+    "environment_type": {
+      "type": "string",
+      "enum":["umbrella"],
+      "default":"umbrella"
+    },
+    "spec_url": {
+      "type": "string",
+      "title": "Umbrella spec url (local file, http or https link)"
+    },
+    "image": {
+      "type": "string",
+      "title": "Image"
+    },
+    "imagetag": {
+      "type": "string",
+      "title": "Tag",
+      "default":"latest"
+   },
+    "resources": {
+      "type": "array",
+      "title": "Resources",
+      "default":[]
+    },
+    "envscript": {
+      "type": "string",
+      "title": "Env Script",
+      "default":""
+    },
+    "env": {
+      "type": "object",
+      "title": "Env Vars",
+      "properties": {},
+      "default":{}
+    }
+  },
+  "required": [
+    "environment_type",
+    "spec_url"
+  ]
+}

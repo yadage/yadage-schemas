@@ -107,7 +107,6 @@ def loader(toplevel):
         def caploader(uri):
             recordnr = toplevel.split('/')[1]
             import requests
-            print recordnr
             data = requests.get('https://analysis-preservation-qa.cern.ch/api/records/{}'.format(recordnr),verify=False).json()
             workflowinfo = {x['name']:x['workflow'] for x in data['metadata']['_metadata']['workflows']}
             return workflowinfo[uri]
@@ -131,7 +130,11 @@ def loader(toplevel):
     def yamlloader(uri):
         try:
             log.debug('trying to get uri %s',uri)
-            data = requests.get(uri).content
+            if 'YADAGE_SCHEMA_LOAD_TOKEN' in os.environ:
+                kwargs = {'headers': {'PRIVATE-TOKEN':os.environ['YADAGE_SCHEMA_LOAD_TOKEN']}}
+            else:
+                kwargs = None
+            data = requests.get(uri,**kwargs).content
             return yaml.load(data)
         except:
             try:

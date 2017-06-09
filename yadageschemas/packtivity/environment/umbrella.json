@@ -6,12 +6,18 @@
   "properties": {
     "environment_type": {
       "type": "string",
-      "enum":["umbrella"],
-      "default":"umbrella"
+      "enum": [
+        "umbrella"
+      ],
+      "default": "umbrella"
     },
     "spec_url": {
       "type": "string",
       "title": "Umbrella spec url (local file, http or https link)"
+    },
+    "spec": {
+      "type": "object",
+      "title": "JSON Reference to the spec file"
     },
     "image": {
       "type": "string",
@@ -20,27 +26,34 @@
     "imagetag": {
       "type": "string",
       "title": "Tag",
-      "default":"latest"
-   },
+      "default": "latest"
+    },
     "resources": {
       "type": "array",
       "title": "Resources",
-      "default":[]
+      "default": []
     },
     "envscript": {
       "type": "string",
       "title": "Env Script",
-      "default":""
+      "default": ""
     },
     "env": {
       "type": "object",
       "title": "Env Vars",
       "properties": {},
-      "default":{}
+      "default": {}
     }
   },
+  "oneOf": [
+    {
+      "required": ["spec"]
+    },
+    {
+      "required": ["spec_url"]
+    }
+  ],
   "required": [
-    "environment_type",
-    "spec_url"
+    "environment_type"
   ]
 }

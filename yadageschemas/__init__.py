@@ -35,14 +35,15 @@ def extend_with_default(validator_class):
 
                 instance['parameters'] = asarray
 
-        for prop, subschema in properties.iteritems():
-            if "default" in subschema:
-                instance.setdefault(prop, subschema["default"])
 
         for error in validate_properties(
             validator, properties, instance, schema,
         ):
             yield error
+
+        for prop, subschema in properties.iteritems():
+            if "default" in subschema:
+                instance.setdefault(prop, subschema["default"])
 
     return validators.extend(
         validator_class, {"properties" : set_defaults},

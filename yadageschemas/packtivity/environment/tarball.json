@@ -1,0 +1,46 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "title": "Docker Encapsulated Environment",
+  "additionalProperties": false,
+  "properties": {
+    "environment_type": {
+      "type": "string",
+      "enum":["tarball"],
+      "default":"tarball"
+    },
+    "url": {
+      "type": "string",
+      "title": "Tarball url (local file, http or https link)"
+    },
+    "image": {
+      "type": "string",
+      "title": "Image"
+    },
+    "imagetag": {
+      "type": "string",
+      "title": "Tag",
+      "default":"latest"
+   },
+    "resources": {
+      "type": "array",
+      "title": "Resources",
+      "default":[]
+    },
+    "envscript": {
+      "type": "string",
+      "title": "Env Script",
+      "default":""
+    },
+    "env": {
+      "type": "object",
+      "title": "Env Vars",
+      "properties": {},
+      "default":{}
+    }
+  },
+  "required": [
+    "environment_type",
+    "url"
+  ]
+}

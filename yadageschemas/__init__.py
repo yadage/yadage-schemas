@@ -25,7 +25,7 @@ def extend_with_default(validator_class):
                     "expressions": instance["dependencies"]
                     }
 
-        if "Scheduler" in schema.get('title',''):
+        if "Scheduler" in schema.get('title','') and instance['scheduler_type'] in ['singlestep-stage','multistep-stage']:
             if(type(instance['parameters'])==dict):
                 asarray = []
                 for k,v in instance['parameters'].iteritems():

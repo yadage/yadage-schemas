@@ -21,7 +21,8 @@
       "type": "object",
       "oneOf":[
         {"$ref":"scheduler/singlestep-stage-schema.json#"},
-        {"$ref":"scheduler/multistep-stage-schema.json#"}
+        {"$ref":"scheduler/multistep-stage-schema.json#"},
+        {"$ref":"scheduler/jq-stage-schema.json#"}
       ]
     }
   },

@@ -8,6 +8,14 @@ import urllib2
 import logging
 from jsonschema import Draft4Validator, validators
 import pkg_resources
+
+try:
+    # For Python 3.0 and later
+    from urllib.request import urlopen
+except ImportError:
+    # Fall back to Python 2's urllib2
+    from urllib2 import urlopen
+
 log = logging.getLogger(__name__)
 
 schemadir = pkg_resources.resource_filename('yadageschemas','')
@@ -139,7 +147,7 @@ def loader(toplevel):
             return yaml.load(data)
         except:
             try:
-                data = urllib2.urlopen(uri).read()
+                data = urlopen(uri).read()
                 return yaml.load(data)
             except:
                 log.exception('loading error: cannot find URI %s',uri)
@@ -165,7 +173,7 @@ def validator(schema_name,schemadir):
     abspath = '{}/{}.json'.format(schemabase,schema_name)
     this_base_uri = abspath.rsplit('/',1)[0]+'/'
 
-    schema   = json.loads(urllib2.urlopen(abspath).read())
+    schema   = json.loads(urlopen(abspath).read())
     resolver = jsonschema.RefResolver(this_base_uri, schema)
     return DefaultValidatingDraft4Validator(schema, resolver = resolver)
 

@@ -4,7 +4,6 @@ import jsonschema
 import jsonref
 import requests
 import yaml
-import urllib2
 import logging
 from jsonschema import Draft4Validator, validators
 import pkg_resources
@@ -36,7 +35,7 @@ def extend_with_default(validator_class):
         if "Scheduler" in schema.get('title','') and instance['scheduler_type'] in ['singlestep-stage','multistep-stage']:
             if(type(instance['parameters'])==dict):
                 asarray = []
-                for k,v in instance['parameters'].iteritems():
+                for k,v in instance['parameters'].items():
                     if type(v) == dict:
                         v['expression_type'] = 'stage-output-selector'
                     asarray.append({'key':k,'value':v})
@@ -49,7 +48,7 @@ def extend_with_default(validator_class):
         ):
             yield error
 
-        for prop, subschema in properties.iteritems():
+        for prop, subschema in properties.items():
             if "default" in subschema:
                 instance.setdefault(prop, subschema["default"])
 
@@ -173,7 +172,7 @@ def validator(schema_name,schemadir):
     abspath = '{}/{}.json'.format(schemabase,schema_name)
     this_base_uri = abspath.rsplit('/',1)[0]+'/'
 
-    schema   = json.loads(urlopen(abspath).read())
+    schema   = json.loads(urlopen(abspath).read().decode('utf-8'))
     resolver = jsonschema.RefResolver(this_base_uri, schema)
     return DefaultValidatingDraft4Validator(schema, resolver = resolver)
 

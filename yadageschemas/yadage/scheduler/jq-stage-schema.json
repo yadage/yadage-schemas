@@ -11,7 +11,14 @@
       ]
     },
     "bindings": {"type": "object"},
-    "stepscript": {"type": "string"},
+    "stepscript": {
+      "type": "string",
+      "default": "[.]"
+    },
+    "postscript": {
+      "type": "string",
+      "default": "."
+    },
     "step": {"$ref":"../../packtivity/packtivity-schema.json"},
     "workflow": {"$ref":"../workflow-schema.json#"}
   }

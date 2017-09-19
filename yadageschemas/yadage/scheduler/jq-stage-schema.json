@@ -21,5 +21,6 @@
     },
     "step": {"$ref":"../../packtivity/packtivity-schema.json"},
     "workflow": {"$ref":"../workflow-schema.json#"}
-  }
+  },
+  "required": ["scheduler_type"]
 }

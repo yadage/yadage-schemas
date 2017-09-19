@@ -22,5 +22,6 @@
       "required": ["step"],
       "not": {"required": ["workflow"]}
   }           
-  ]
+  ],
+  "required": ["scheduler_type"]
 }

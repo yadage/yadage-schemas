@@ -43,10 +43,14 @@ def extend_with_default(validator_class):
                 instance['parameters'] = asarray
 
 
+        errors_found = False
         for error in validate_properties(
             validator, properties, instance, schema,
         ):
+            errors_found = True
             yield error
+
+        if errors_found: return
 
         for prop, subschema in properties.items():
             if "default" in subschema:

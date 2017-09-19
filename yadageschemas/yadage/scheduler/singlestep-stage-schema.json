@@ -13,5 +13,14 @@
     "parameters": {"$ref" : "parameterselection.json"},
     "step": {"$ref":"../../packtivity/packtivity-schema.json"},
     "workflow": {"$ref":"../workflow-schema.json#"}
-  }
+  },
+  "oneOf": [{
+      "required": ["workflow"],
+      "not": {"required": ["step"]}
+  }, 
+  {
+      "required": ["step"],
+      "not": {"required": ["workflow"]}
+  }           
+  ]
 }

@@ -13,6 +13,14 @@
     "parameters": {"$ref":"parameterselection.json"},
     "step": {"$ref":"../../packtivity/packtivity-schema.json"},
     "workflow": {"$ref":"../workflow-schema.json#"},
+    "batchsize": {
+      "type": "number",
+      "default": null
+    },
+    "partitionsize": {
+      "type": "number",
+      "default": null
+    },
     "scatter": {
       "type":"object",
       "additionalProperties": false,
@@ -21,5 +29,26 @@
         "method":{"type":"string"}
       }
     }
-  }
+  },
+  "oneOf": [{
+      "required": ["workflow"],
+      "not": {"required": ["step"]}
+  }, 
+  {
+      "required": ["step"],
+      "not": {"required": ["workflow"]}
+  }           
+  ],
+  "anyOf": [{
+      "required": ["batchsize"],
+      "not": {"required": ["partitionsize"]}
+  }, 
+  {
+      "required": ["partitionsize"],
+      "not": {"required": ["batchsize"]}
+  },
+  {
+      "not": {"required": ["batchsize","partitionsize"]}
+  }           
+  ]
 }

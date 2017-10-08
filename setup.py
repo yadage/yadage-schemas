@@ -13,7 +13,7 @@ setup(
         'pyyaml',
         'requests[security]>=2.9',
         'jsonschema',
-        'click'
+        'click',
         'jsonpointer>=1.10',
         'jsonpath_rw'
     ],

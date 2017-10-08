@@ -19,7 +19,7 @@ log = logging.getLogger(__name__)
 @click.option('--schemadir','-d', default='')
 @click.option('--stdout', '-s', default=False, is_flag=True)
 def main(workflow, toplevel, schemadir, stdout):
-    rc = 1
+    rc = 3
     if not toplevel:
         toplevel = os.getcwd()
     if not schemadir:
@@ -31,15 +31,16 @@ def main(workflow, toplevel, schemadir, stdout):
         else:
             click.secho('workflow validates against schema', fg='green')
         rc = 0
-    except jsonschema.exceptions.ValidationError:
+    except jsonschema.exceptions.ValidationError as e:
+        rc = 1
+        log.exception(e)
         click.secho('workflow does not validate against schema', fg='red')
-        raise
     except:
-        log.exception('')
-        click.secho(
-            'this is not even wrong (non-ValidationError exception)', fg='red')
+        rc = 2
+        #log.exception()
+        click.secho('this is not even wrong (non-ValidationError exception)', fg='red')
 
-    if rc == 1:
+    if rc != 0:
         exc = click.exceptions.ClickException(
             click.style("validation failed", fg='red'))
         exc.exit_code = rc

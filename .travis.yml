@@ -8,6 +8,7 @@ python:
 install:
 - pip install pyflakes
 - pip install -e .
+- pip freeze
 script:
 - pyflakes .
 - yadage-validate madgraph_delphes.yml -t from-github/phenochain

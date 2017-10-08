@@ -7,6 +7,7 @@ import yaml
 import logging
 from jsonschema import Draft4Validator, validators
 import pkg_resources
+from .utils import WithJsonRefEncoder
 
 try:
     # For Python 3.0 and later
@@ -187,4 +188,4 @@ def load(source, toplevel, schema_name, schemadir = None, validate = True, initi
     data = load(source,initialload)
     if validate:
         validator(schema_name,schemadir).validate(data)
-    return json.loads(json.dumps(data, cls=utils.WithJsonRefEncoder))
+    return json.loads(json.dumps(data, cls=WithJsonRefEncoder))

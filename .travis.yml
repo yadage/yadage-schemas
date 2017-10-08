@@ -1,23 +1,26 @@
 sudo: required
+services:
+- docker
 language: python
 python:
 - '2.7'
-#- '3.3'
+- '3.3'
 - '3.4'
-#- '3.5'
+- '3.5'
 - '3.6'
 install:
 - pip install pyflakes
-- pip install -e .
-- pip freeze
+- pip install -U -e .
 script:
-- pyflakes .
-- yadage-validate madgraph_delphes.yml -t from-github/phenochain
-deploy:
-  provider: pypi
-  user:
-    secure: Gu7rkUA2V4BGAQYRdQnKAFT/E4Y7X83yx6Iy3Wd0Noy+e3ZU+bbQKtAI7ZFgbe2CAZEnHAuW/54zwvsiQJnqTUUAxZDK/AUbj1AcK7sHVWdJik980AssovdtHLVCpPSEU8K2ikB8xuL8OWmvWzhICW5fkwSoT5wTT583RIR91RF0hh3MBcdpyNMVVZfh7xdP9Tc06H/1Ljm9Fuglutbf+9VCEwp45cHOqJVvo9Sr4t+8I0IpMDmnAJpoV5RFvgzJ59t+JKYJSxT0DLkT8CZ8wh6yts8FnaOodGpp+0Lmjd1rxosENxw/NK/1uKo6OdFWdFLHx/wAzTTrPiPu49lFw7efrlHQCiEvsNJbYU7lHVf0C0/nS7ckLOaW+VFPEQRHqlGcNU7nt2x4t8Tl9vxeJbqkuUA7LpzXUa0TfxT16LDdVPmzmd4+/Qj0nE9I+ipR8TWbigIoR3HfSZouP5uyrt53XovhUHqoOxeunlYSM17ePRrOYb9ZFw6AIbSSFo8pS0iRvY5xTNeDD+MRVJP4STEZn71KCt/HoLaE7c2+hx2B95rN3lhvIIPQm7Z3Lvx89nzCn2eAsFBk5NwZYhw97AfQU23y5/vc3cz6iCVUzri33Vl4jGRDpyDf9v9w9p9YJUrc2UKdWowDKnOcagZe0tMhkqM6TRz9GXC1sG3IXSE=
-  password:
-    secure: YOl6hTJ9XdFM84ZthqN0+3Zk/nQ23LRNIxMFL4uzKqd6kDB6GLTUmWl+XUu4tzcM4ctgfnL0yyJbqe9YCy+7EWSYMvD2CACQC2Cykd09gn56Aza57F8vRrjTD7AlrPwq9hrF1tzFiuFtM8qvSUr64h3XhUb7KzMVHG6/ZtKZobmNJuaU40dp5N0bqNV38Rnh/n+wwOPKeBaLkOUXCZHWvzk+x7NC++/pNZl6Fx1kfktNpL+PgnCjCoWb0BtADtjLCVFx2DyzEKC/C+7ANhqkcUO06bTA5D3DTVRiQ9Ca6pSUBdsdNo/oHvJ5CIQQyndFKJXZIFWu5O8YLm3RQRu0NULejHpHqQ2kl3wJyDPPE4t7dbxT44xzcmdwSPkh+yJmObNCQZOIuEDy4lYQ+VrTvYNcNiGTwYXVafVvyQzqKIIkjyOaLshW1TUOD2Glr2icwBn0Hlyf8zbfqerSvzjymdiklsodWSVcucKqxLspkqHeohPcVAFU08/9z1uYw40R54ywaY72PbBj4r6VfhcfTaFXB7ISoCQ+fZeRis815rF1+ZjUPqcuEPcjQY8/632jRz+iBHkH2rt7b3YrzVadwPhSg6Luv6eQHSlENLRkVgrzMk9fnBmkLnVA3UWJbOGz+JaBRRyWxuS3KgxDZNc6VrlXCAvXnOLP3FBFpsHdmBU=
-  on:
-    tags: true
+- pyflakes yadageschemas
+jobs:
+  include:
+    - stage: deploy
+      deploy:
+        provider: pypi
+      user:
+        secure: Gu7rkUA2V4BGAQYRdQnKAFT/E4Y7X83yx6Iy3Wd0Noy+e3ZU+bbQKtAI7ZFgbe2CAZEnHAuW/54zwvsiQJnqTUUAxZDK/AUbj1AcK7sHVWdJik980AssovdtHLVCpPSEU8K2ikB8xuL8OWmvWzhICW5fkwSoT5wTT583RIR91RF0hh3MBcdpyNMVVZfh7xdP9Tc06H/1Ljm9Fuglutbf+9VCEwp45cHOqJVvo9Sr4t+8I0IpMDmnAJpoV5RFvgzJ59t+JKYJSxT0DLkT8CZ8wh6yts8FnaOodGpp+0Lmjd1rxosENxw/NK/1uKo6OdFWdFLHx/wAzTTrPiPu49lFw7efrlHQCiEvsNJbYU7lHVf0C0/nS7ckLOaW+VFPEQRHqlGcNU7nt2x4t8Tl9vxeJbqkuUA7LpzXUa0TfxT16LDdVPmzmd4+/Qj0nE9I+ipR8TWbigIoR3HfSZouP5uyrt53XovhUHqoOxeunlYSM17ePRrOYb9ZFw6AIbSSFo8pS0iRvY5xTNeDD+MRVJP4STEZn71KCt/HoLaE7c2+hx2B95rN3lhvIIPQm7Z3Lvx89nzCn2eAsFBk5NwZYhw97AfQU23y5/vc3cz6iCVUzri33Vl4jGRDpyDf9v9w9p9YJUrc2UKdWowDKnOcagZe0tMhkqM6TRz9GXC1sG3IXSE=
+      password:
+        secure: YOl6hTJ9XdFM84ZthqN0+3Zk/nQ23LRNIxMFL4uzKqd6kDB6GLTUmWl+XUu4tzcM4ctgfnL0yyJbqe9YCy+7EWSYMvD2CACQC2Cykd09gn56Aza57F8vRrjTD7AlrPwq9hrF1tzFiuFtM8qvSUr64h3XhUb7KzMVHG6/ZtKZobmNJuaU40dp5N0bqNV38Rnh/n+wwOPKeBaLkOUXCZHWvzk+x7NC++/pNZl6Fx1kfktNpL+PgnCjCoWb0BtADtjLCVFx2DyzEKC/C+7ANhqkcUO06bTA5D3DTVRiQ9Ca6pSUBdsdNo/oHvJ5CIQQyndFKJXZIFWu5O8YLm3RQRu0NULejHpHqQ2kl3wJyDPPE4t7dbxT44xzcmdwSPkh+yJmObNCQZOIuEDy4lYQ+VrTvYNcNiGTwYXVafVvyQzqKIIkjyOaLshW1TUOD2Glr2icwBn0Hlyf8zbfqerSvzjymdiklsodWSVcucKqxLspkqHeohPcVAFU08/9z1uYw40R54ywaY72PbBj4r6VfhcfTaFXB7ISoCQ+fZeRis815rF1+ZjUPqcuEPcjQY8/632jRz+iBHkH2rt7b3YrzVadwPhSg6Luv6eQHSlENLRkVgrzMk9fnBmkLnVA3UWJbOGz+JaBRRyWxuS3KgxDZNc6VrlXCAvXnOLP3FBFpsHdmBU=
+      on:
+        tags: true

@@ -4,7 +4,7 @@ setup(
     author = 'Lukas Heinrich',
     author_email = 'lukas.heinrich@gmail.com',
     name = 'yadage-schemas',
-    version = '0.7.9',
+    version = '0.7.10',
     description = 'schemas for yadage and packtivity',
     include_package_data = True,
     packages = find_packages(),

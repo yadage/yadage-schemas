@@ -1,24 +1,22 @@
-import yadage.validator_workflow
+import yadageschemas.validatecli
 from click.testing import CliRunner
-import yadage.manualcli
 import os
 import pytest
 
 def test_validator():
     runner = CliRunner()
-    result = runner.invoke(yadage.validator_workflow.main,['workflow.yml','tests/testspecs/local-helloworld'])
+    result = runner.invoke(yadageschemas.validatecli.main,['workflow.yml','-t','tests/testspecs/local-helloworld'])
     assert result.exit_code == 0
 
-    result = runner.invoke(yadage.validator_workflow.main,['workflow.yml','tests/testspecs/local-helloworld','-s'])
+    result = runner.invoke(yadageschemas.validatecli.main,['workflow.yml','-t','tests/testspecs/local-helloworld','-s'])
     assert result.exit_code == 0
 
 def test_validator_noteven():
     runner = CliRunner()
-    result = runner.invoke(yadage.validator_workflow.main,['unknown','unknown'])
+    result = runner.invoke(yadageschemas.validatecli.main,['unknown'])
     assert result.exit_code == 1
 
 def test_validator_invalid():
     runner = CliRunner()
-    result = runner.invoke(yadage.validator_workflow.main,['invalid_spec.yml','testspecs'])
-    assert result.exit_code == 1
-
+    result = runner.invoke(yadageschemas.validatecli.main,['workflow.yml','-t','tests/testspecs/invalid'])
+    assert result.exit_code == -1

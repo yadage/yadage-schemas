@@ -12,9 +12,6 @@ def test_validator():
     result = runner.invoke(yadage.validator_workflow.main,['workflow.yml','tests/testspecs/local-helloworld','-s'])
     assert result.exit_code == 0
 
-    result = runner.invoke(yadage.validator_workflow.main,['workflow.yml','tests/testspecs/nestedmapreduce','-s'])
-    assert result.exit_code == 0
-
 def test_validator_noteven():
     runner = CliRunner()
     result = runner.invoke(yadage.validator_workflow.main,['unknown','unknown'])

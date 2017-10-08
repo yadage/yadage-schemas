@@ -4,6 +4,7 @@
   "title": "Parameter Selection",
   "items":{
     "type":"object",
+    "title": "Parmeter Values / Refs",
     "additionalProperties": false,
     "properties": {
       "key":{"type":"string"},
@@ -14,6 +15,7 @@
           {"type":"number"},
           {
             "type":"object",
+            "title": "workflow reference",
             "additionalProperties": false,
             "properties": {
               "expression_type": {
@@ -24,7 +26,7 @@
               },
               "stages": {"type":"string"},
               "output": {"type":"string"},
-              "unwrap": {"type":"boolean"},
+              "unwrap": {"type":"boolean", "default": "true"},
               "flatten":{"type":"boolean"}
             },
             "required": [

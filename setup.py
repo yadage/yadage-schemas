@@ -12,6 +12,12 @@ setup(
         'jsonref',
         'pyyaml',
         'requests[security]',
-        'jsonschema'
-    ]
+        'jsonschema',
+        'click'
+    ],
+    entry_points = {
+      'console_scripts': [
+          'yadage-validate=yadageschemas.validatecli:main',
+      ],
+    }
 )

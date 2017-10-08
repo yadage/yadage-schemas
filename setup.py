@@ -14,8 +14,6 @@ setup(
         'requests[security]>=2.9',
         'jsonschema',
         'click',
-        'jsonpointer>=1.10',
-        'jsonpath_rw'
     ],
     entry_points = {
       'console_scripts': [

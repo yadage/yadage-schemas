@@ -54,6 +54,8 @@ def extend_with_default(validator_class):
 
         for prop, subschema in properties.items():
             if "default" in subschema and type(instance) == dict:
+                # Note not clear why this is the case, appeared in py3.X
+                # intermittently on Travis
                 instance.setdefault(prop, subschema["default"])
 
     return validators.extend(

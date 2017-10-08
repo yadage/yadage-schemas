@@ -1,4 +1,5 @@
 import json
+import jsonref
 
 class WithJsonRefEncoder(json.JSONEncoder):
 

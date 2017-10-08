@@ -7,6 +7,7 @@ python:
 - '3.6'
 install:
 - pip install pyflakes
+- pip install -e .
 script:
 - pyflakes .
 - yadage-validate madgraph_delphes.yml -t from-github/phenochain

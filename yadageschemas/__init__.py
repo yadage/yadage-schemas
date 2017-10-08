@@ -187,4 +187,4 @@ def load(source, toplevel, schema_name, schemadir = None, validate = True, initi
     data = load(source,initialload)
     if validate:
         validator(schema_name,schemadir).validate(data)
-    return data
+    return json.loads(json.dumps(data, cls=utils.WithJsonRefEncoder))

@@ -11,7 +11,7 @@ setup(
     install_requires = [
         'jsonref',
         'pyyaml',
-        'requests[security]',
+        'requests[security]>=2.9',
         'jsonschema',
         'click'
     ],

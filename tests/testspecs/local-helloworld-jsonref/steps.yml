@@ -1,0 +1,10 @@
+astep:
+  process:
+    process_type: 'string-interpolated-cmd'
+    cmd: 'echo Hello {parone} | tee {outputfile}'
+  publisher:
+    publisher_type: 'frompar-pub'
+    outputmap:
+      outputfile: outputfile
+  environment:
+    environment_type: 'localproc-env'

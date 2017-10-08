@@ -11,7 +11,13 @@ setup(
     install_requires = [
         'jsonref',
         'pyyaml',
-        'requests[security]',
-        'jsonschema'
-    ]
+        'requests[security]>=2.9',
+        'jsonschema',
+        'click',
+    ],
+    entry_points = {
+      'console_scripts': [
+          'yadage-validate=yadageschemas.validatecli:main',
+      ],
+    }
 )

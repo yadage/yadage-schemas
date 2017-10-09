@@ -26,7 +26,7 @@
               },
               "stages": {"type":"string"},
               "output": {"type":"string"},
-              "unwrap": {"type":"boolean", "default": true},
+              "unwrap": {"type":"boolean", "default": false},
               "flatten":{"type":"boolean"}
             },
             "required": [

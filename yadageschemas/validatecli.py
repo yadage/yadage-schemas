@@ -37,7 +37,7 @@ def main(workflow, toplevel, schemadir, stdout):
         click.secho('workflow does not validate against schema', fg='red')
     except:
         rc = 2
-        #log.exception()
+        log.exception('hm')
         click.secho('this is not even wrong (non-ValidationError exception)', fg='red')
 
     if rc != 0:

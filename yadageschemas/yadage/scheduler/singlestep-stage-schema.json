@@ -10,17 +10,22 @@
         "singlestep-stage"
       ]
     },
+    "cases": {"$ref": "cases.json"},
     "parameters": {"$ref" : "parameterselection.json"},
     "step": {"$ref":"../../packtivity/packtivity-schema.json"},
     "workflow": {"$ref":"../workflow-schema.json#"}
   },
   "oneOf": [{
       "required": ["workflow"],
-      "not": {"required": ["step"]}
+      "not": {"required": ["step","cases"]}
   },
   {
       "required": ["step"],
-      "not": {"required": ["workflow"]}
+      "not": {"required": ["workflow","cases"]}
+  },
+  {
+      "required": ["cases"],
+      "not": {"required": ["workflow","step"]}
   }
   ],
   "required": ["scheduler_type"]

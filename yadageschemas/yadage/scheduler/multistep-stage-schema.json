@@ -13,6 +13,7 @@
     "batchsize": {"type":"number"},
     "partitionsize": {"type":"number"},
     "parameters": {"$ref":"parameterselection.json"},
+    "cases": {"$ref": "cases.json"},
     "step": {"$ref":"../../packtivity/packtivity-schema.json"},
     "workflow": {"$ref":"../workflow-schema.json#"},
     "partitionsize": {
@@ -27,15 +28,18 @@
       }
     }
   },
-  "oneOf": [
-  {
+  "oneOf": [{
       "required": ["workflow"],
-      "not": {"required": ["step"]}
-  }, 
+      "not": {"required": ["step","cases"]}
+  },
   {
       "required": ["step"],
-      "not": {"required": ["workflow"]}
-  }           
+      "not": {"required": ["workflow","cases"]}
+  },
+  {
+      "required": ["cases"],
+      "not": {"required": ["workflow","step"]}
+  }
   ],
   "oneOf": [
   {

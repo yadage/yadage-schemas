@@ -34,6 +34,14 @@
       "properties": {},
       "default":{}
     },
+    "workdir": {
+      "oneOf":[
+        {"type": "string"},
+        {"type": "null"}
+      ],
+      "title": "Work Directory",
+      "default": null
+    },
     "par_mounts": {
       "type": "array",
       "title": "Parameter Mounts",

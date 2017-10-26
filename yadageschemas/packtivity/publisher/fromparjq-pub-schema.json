@@ -1,17 +1,18 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
-  "title": "Simple Interpolated Publisher",
+  "title": "Parameter Publisher",
   "additionalProperties": false,
   "properties": {
     "publisher_type": {
       "type": "string",
       "enum": [
-        "interpolated-pub"
+        "fromparjq-pub"
       ]
     },
-    "publish": {
-      "type": "object"
+    "script": {
+      "type": "string",
+      "default": "."
     },
     "glob": {
       "type": "boolean",
@@ -23,7 +24,6 @@
     }
   },
   "required": [
-    "publisher_type",
-    "publish"
+    "publisher_type"
   ]
 }

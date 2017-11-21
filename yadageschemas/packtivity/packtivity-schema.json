@@ -5,11 +5,11 @@
   "additionalProperties": false,
   "properties": {
       "process": {
-          "type": "object",
           "oneOf":[
             {"$ref": "process/stringinterp-schema.json#"},
             {"$ref": "process/scriptproc-schema.json#"},
-            {"$ref": "process/manual-instructions-proc-schema.json#"}
+            {"$ref": "process/manual-instructions-proc-schema.json#"},
+            {"type": "null"}
           ]
       },
       "publisher": {
@@ -25,12 +25,12 @@
           ]
       },
       "environment": {
-          "type": "object",
           "oneOf":[
             {"$ref": "environment/noop-env-schema.json#"},
             {"$ref": "environment/localproc-schema.json#"},
             {"$ref": "environment/docker-enc-schema.json#"},
-            {"$ref": "environment/manual-instructions-env-schema.json#"}
+            {"$ref": "environment/manual-instructions-env-schema.json#"},
+            {"type": "null"}
           ]
       }
   },

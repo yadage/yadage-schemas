@@ -14,6 +14,10 @@
       "type": "string",
       "default": "."
     },
+    "tryExact": {
+      "type": "boolean",
+      "default": true
+    },
     "glob": {
       "type": "boolean",
       "default": false

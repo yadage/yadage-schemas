@@ -37,7 +37,7 @@ def extend_with_default(validator_class):
             if(type(instance['parameters'])==dict):
                 asarray = []
                 for k,v in instance['parameters'].items():
-                    if type(v) == dict:
+                    if type(v) == dict and 'stages' in v:
                         v['expression_type'] = 'stage-output-selector'
                     asarray.append({'key':k,'value':v})
 

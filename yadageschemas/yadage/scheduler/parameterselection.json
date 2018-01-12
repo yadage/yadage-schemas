@@ -13,26 +13,7 @@
           {"type":"string"},
           {"type":"array"},
           {"type":"number"},
-          {
-            "type":"object",
-            "title": "workflow reference",
-            "additionalProperties": false,
-            "properties": {
-              "expression_type": {
-                "type": "string",
-                "enum": [
-                  "stage-output-selector"
-                ]
-              },
-              "stages": {"type":"string"},
-              "output": {"type":"string"},
-              "unwrap": {"type":"boolean", "default": false},
-              "flatten":{"type":"boolean"}
-            },
-            "required": [
-              "expression_type"
-            ]
-          }
+          {"type":"object"}
         ]
       }
     }

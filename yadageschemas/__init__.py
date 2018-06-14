@@ -3,7 +3,7 @@ import pkg_resources
 
 schemadir = pkg_resources.resource_filename('yadageschemas','')
 
-from .utils import urlopen, WithJsonRefEncoder
+from .utils import WithJsonRefEncoder
 from . import dialects
 from .validator import validate_spec
 

@@ -1,8 +1,6 @@
 from . import dialect
 
-import json
 import os
-import jsonschema
 import jsonref
 import requests
 import yaml

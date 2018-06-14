@@ -1,10 +1,8 @@
-import pkg_resources
-import os
-import json
 
-from .utils import urlopen, schema_and_refresolver
+from .utils import schema_and_refresolver
 
 from .dialects import raw_with_defaults
+assert raw_with_defaults
 from jsonschema import Draft4Validator
 
 def validator(schema_name,schemadir):

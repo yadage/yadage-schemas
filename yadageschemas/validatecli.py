@@ -5,7 +5,6 @@ import jsonschema
 import logging
 import yadageschemas
 import json
-
 from .utils import WithJsonRefEncoder
 
 
@@ -18,14 +17,31 @@ log = logging.getLogger(__name__)
 @click.option('--toplevel','-t',default='')
 @click.option('--schemadir','-d', default='')
 @click.option('--stdout', '-s', default=False, is_flag=True)
-def main(workflow, toplevel, schemadir, stdout):
+@click.option('--dialect', default = 'raw_with_defaults')
+@click.option('--plugins', default = '')
+def main(workflow, toplevel, schemadir, stdout, dialect,plugins):
+    if plugins:
+        for p in plugins.split(','):
+            import importlib
+            importlib.import_module(p)
     rc = 3
     if not toplevel:
         toplevel = os.getcwd()
     if not schemadir:
         schemadir = yadageschemas.schemadir
     try:
-        data = yadageschemas.load(workflow, toplevel, 'yadage/workflow-schema', schemadir, validate = True)
+        spec, specopts = workflow, {
+            'toplevel': toplevel,
+            'load_as_ref': True,
+            'schemadir': schemadir,
+            'schema_name': 'yadage/workflow-schema'
+        }
+        validopts = {
+            'schemadir': schemadir,
+            'schema_name': 'yadage/workflow-schema'
+        }
+
+        data = yadageschemas.load(spec, specopts, validate = True, validopts = validopts, dialect = dialect)
         if stdout:
             print(json.dumps(data, cls=WithJsonRefEncoder))
         else:

@@ -2,9 +2,29 @@ import yadageschemas
 import json
 
 def test_load_jsondump():
-    data = yadageschemas.load('workflow.yml','tests/testspecs/local-helloworld-jsonref', 'yadage/workflow-schema')
+    spec, specopts = 'workflow.yml', {
+        'toplevel': 'tests/testspecs/local-helloworld-jsonref',
+        'schema_name': 'yadage/workflow-schema',
+        'schemadir': yadageschemas.schemadir,
+        'load_as_ref': False,
+    }
+    validopts = {
+        'schema_name': 'yadage/workflow-schema',
+        'schemadir': yadageschemas.schemadir,
+    }
+    data = yadageschemas.load(spec,specopts,validopts = validopts)
     json.dumps(data)
 
 def test_load_default_unwrap():
-    data = yadageschemas.load('workflow.yml','tests/testspecs/mapreduce', 'yadage/workflow-schema')
+    spec, specopts = 'workflow.yml', {
+        'toplevel': 'tests/testspecs/mapreduce',
+        'schema_name': 'yadage/workflow-schema',
+        'schemadir': yadageschemas.schemadir,
+        'load_as_ref': False,
+    }
+    validopts = {
+        'schema_name': 'yadage/workflow-schema',
+        'schemadir': yadageschemas.schemadir,
+    }
+    data = yadageschemas.load(spec,specopts,validopts = validopts)
     json.dumps(data)

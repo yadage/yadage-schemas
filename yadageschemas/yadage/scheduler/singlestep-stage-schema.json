@@ -11,6 +11,7 @@
       ]
     },
     "cases": {"$ref": "cases.json"},
+    "register_values": {"$ref": "value_registration.json"},
     "parameters": {"$ref" : "parameterselection.json"},
     "step": {"$ref":"../../packtivity/packtivity-schema.json"},
     "workflow": {"$ref":"../workflow-schema.json#"}

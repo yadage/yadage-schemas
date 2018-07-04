@@ -14,6 +14,7 @@
     "partitionsize": {"type":"number"},
     "parameters": {"$ref":"parameterselection.json"},
     "cases": {"$ref": "cases.json"},
+    "register_values": {"$ref": "value_registration.json"},
     "step": {"$ref":"../../packtivity/packtivity-schema.json"},
     "workflow": {"$ref":"../workflow-schema.json#"},
     "partitionsize": {

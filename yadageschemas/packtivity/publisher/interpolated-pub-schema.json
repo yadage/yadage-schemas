@@ -11,7 +11,7 @@
       ]
     },
     "publish": {
-      "type": "object"
+      "oneOf": [{"type": "object"},{"type": "array"}]
     },
     "glob": {
       "type": "boolean",

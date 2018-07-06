@@ -10,7 +10,8 @@
     "dependencies": {
       "type": "object",
       "oneOf":[
-        {"$ref":"predicates/jsonpathready-schema.json#"}
+        {"$ref":"predicates/jsonpathready-schema.json#"},
+        {"$ref":"predicates/exprfulfilled-schema.json#"}
       ],
       "default": {
         "dependency_type": "jsonpath_ready",

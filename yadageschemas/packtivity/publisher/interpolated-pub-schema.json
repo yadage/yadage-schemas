@@ -11,7 +11,13 @@
       ]
     },
     "publish": {
-      "oneOf": [{"type": "object"},{"type": "array"}]
+      "oneOf": [
+        {"type": "object"},
+        {"type": "array"},
+        {"type": "string"},
+        {"type": "boolean"},
+        {"type": "number"}
+      ]
     },
     "glob": {
       "type": "boolean",

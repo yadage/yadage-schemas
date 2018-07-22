@@ -14,6 +14,7 @@
     "register_values": {"$ref": "value_registration.json"},
     "parameters": {"$ref" : "parameterselection.json"},
     "step": {"$ref":"../../packtivity/packtivity-schema.json"},
+    "workflow_opts": {"type": "object"},
     "workflow": {"$ref":"../workflow-schema.json#"}
   },
   "oneOf": [{

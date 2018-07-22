@@ -22,6 +22,6 @@
     "register_values": {"$ref": "value_registration.json"},
     "step": {"$ref":"../../packtivity/packtivity-schema.json"},
     "workflow": {"$ref":"../workflow-schema.json#"}
-  },
+},
   "required": ["scheduler_type"]
 }

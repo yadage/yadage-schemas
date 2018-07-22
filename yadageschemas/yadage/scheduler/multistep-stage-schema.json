@@ -17,6 +17,7 @@
     "register_values": {"$ref": "value_registration.json"},
     "step": {"$ref":"../../packtivity/packtivity-schema.json"},
     "workflow": {"$ref":"../workflow-schema.json#"},
+    "workflow_opts": {"type": "object"},
     "partitionsize": {
       "type": "number"
     },

@@ -146,7 +146,6 @@ def loader(toplevel):
 
     def yamlloader(uri):
         if '__yadage__' in uri:
-            print(uri)
             d, path = uri.split('___yadage___')
             d = json.loads(d)
             uri = 'https://gitlab.cern.ch/api/v4/projects/{repo}/repository/files/{path}/raw?ref={ref}'.format(

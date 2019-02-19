@@ -172,7 +172,7 @@ def loader(toplevel):
                 raise RuntimeError
 
     def load(source,load_as_ref):
-        full_uri = '{}/{}'.format(base_uri,source)
+        full_uri = '{}{}'.format(base_uri,source)
         log.debug('trying to load rel: %s full uri: %s base %s',source,full_uri,base_uri)
         if not load_as_ref:
             return jsonref.load_uri(full_uri, base_uri = base_uri, loader = yamlloader)

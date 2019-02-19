@@ -19,7 +19,8 @@ log = logging.getLogger(__name__)
 @click.option('--stdout', '-s', default=False, is_flag=True)
 @click.option('--dialect', default = 'raw_with_defaults')
 @click.option('--plugins', default = '')
-def main(workflow, toplevel, schemadir, stdout, dialect,plugins):
+@click.option('--load_as_ref', default = False)
+def main(workflow, toplevel, schemadir, stdout, dialect,plugins,load_as_ref):
     if plugins:
         for p in plugins.split(','):
             import importlib
@@ -32,7 +33,7 @@ def main(workflow, toplevel, schemadir, stdout, dialect,plugins):
     try:
         spec, specopts = workflow, {
             'toplevel': toplevel,
-            'load_as_ref': True,
+            'load_as_ref': load_as_ref,
             'schemadir': schemadir,
             'schema_name': 'yadage/workflow-schema'
         }

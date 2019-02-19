@@ -9,4 +9,4 @@ install:
 script:
 - pip install pyflakes
 - pyflakes yadageschemas
-- yadage-validate madgraph_delphes.yml from-github/phenochain
+- yadage-validate madgraph_delphes.yml -t from-github/phenochain

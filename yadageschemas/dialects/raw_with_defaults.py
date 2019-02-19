@@ -63,6 +63,7 @@ DefaultValidatingDraft4Validator = extend_with_default(Draft4Validator)
 DefaultValidatingDraft4Validator
 
 FROMGITHUB_LOADBASE = 'https://raw.githubusercontent.com/lukasheinrich/yadage-workflows/master'
+import json
 
 def generic_gitlab_cern_url(toplevel):
     fields = toplevel.split(':')[1:]
@@ -83,6 +84,11 @@ def generic_gitlab_cern_url(toplevel):
     url = 'https://gitlab.cern.ch/{repo}/raw/{branch}'.format(repo = repo, branch = branch)
     if subpath:
         url += '/'+subpath
+    return '{}___yadage___'.format(json.dumps({
+        'repo': repo,
+        'ref': branch,
+        'subpath': subpath
+    }))
     return url
 
 def generic_github_url(toplevel):
@@ -110,7 +116,7 @@ def generic_github_url(toplevel):
     if subpath:
         url += '/'+subpath
     return url
-
+import urllib
 def loader(toplevel):
     base_uri = None
 
@@ -139,13 +145,23 @@ def loader(toplevel):
         base_uri = base_uri + '/'
 
     def yamlloader(uri):
+        if '__yadage__' in uri:
+            d, path = uri.split('___yadage___')
+            d = json.loads(d)
+            uri = 'https://gitlab.cern.ch/api/v4/projects/{repo}/repository/files/{path}/raw?ref={ref}'.format(
+                repo = urllib.parse.quote(d['repo'],safe=''),
+                path = urllib.parse.quote(d['subpath']+path, safe=''),
+                ref = urllib.parse.quote(d['ref'],safe='')
+            ) 
         try:
-            log.debug('trying to get uri %s',uri)
+            log.debugs('trying to get uri %s',uri)
             if 'YADAGE_SCHEMA_LOAD_TOKEN' in os.environ:
                 kwargs = {'headers': {'PRIVATE-TOKEN':os.environ['YADAGE_SCHEMA_LOAD_TOKEN']}}
             else:
                 kwargs = None
-            data = requests.get(uri,**kwargs).content
+            r = requests.get(uri,**kwargs)
+            assert r.ok
+            data = r.content
             return yaml.load(data)
         except:
             try:
@@ -154,9 +170,10 @@ def loader(toplevel):
             except:
                 log.exception('loading error: cannot find URI %s',uri)
                 raise RuntimeError
+
     def load(source,load_as_ref):
         full_uri = '{}/{}'.format(base_uri,source)
-        log.debug('trying to load rel: %s full uri: %s base %s',source,full_uri,base_uri)
+        log.warning('trying to load rel: %s full uri: %s base %s',source,full_uri,base_uri)
         if not load_as_ref:
             return jsonref.load_uri(full_uri, base_uri = base_uri, loader = yamlloader)
         else:

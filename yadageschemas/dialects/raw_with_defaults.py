@@ -154,7 +154,7 @@ def loader(toplevel):
                 ref = urllib.parse.quote(d['ref'],safe='')
             ) 
         try:
-            log.debugs('trying to get uri %s',uri)
+            log.debug('trying to get uri %s',uri)
             if 'YADAGE_SCHEMA_LOAD_TOKEN' in os.environ:
                 kwargs = {'headers': {'PRIVATE-TOKEN':os.environ['YADAGE_SCHEMA_LOAD_TOKEN']}}
             else:
@@ -173,7 +173,7 @@ def loader(toplevel):
 
     def load(source,load_as_ref):
         full_uri = '{}/{}'.format(base_uri,source)
-        log.warning('trying to load rel: %s full uri: %s base %s',source,full_uri,base_uri)
+        log.debug('trying to load rel: %s full uri: %s base %s',source,full_uri,base_uri)
         if not load_as_ref:
             return jsonref.load_uri(full_uri, base_uri = base_uri, loader = yamlloader)
         else:

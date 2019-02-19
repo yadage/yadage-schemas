@@ -5,19 +5,7 @@ python:
 - '3.5'
 - '3.6'
 install:
-- pip install -U setuptools
-- pip install -U -e .[develop]
+- pip install -e.
 script:
 - pyflakes yadageschemas
-- pytest
-jobs:
-  include:
-    - stage: deploy
-      deploy:
-        provider: pypi
-        user:
-          secure: "UnI9DGMwmpDKLDQSmpDfG6mFdnMsGLhnV1rAgXFil0RLuR54+qgqqi43DSCJ7WWneTF79F3KqGKnYMMbbE6jqmuoDTor2L/Hjo1IqkWdmsnAMyLPehld4uVyoceJMzKdbQxv7fyifRnGiiz2WDakNHveUznfNJ+2tyVse/AQoaghw5DjXkZF0LHaavtizBpGtYlUCbQa4x6LuSZcMpsFfxU0o2G8EWSHWM9n9PO48BQxEWRNywUMmNJxL9HmH2OdSr7IXTFhMC19eSITBvte99DH5qCBgbsFkGhKZf9yQZ10WTsEQ961RcLX594+R93KmZejZN5hDBSeFS3zEZZBp4RDKUCKELB5yTe2w7sFFoBn9T/sq7PFPtBS5FvalmZCGKf16zatBUq/D64LOELSai2BRDcM6DDlpd7AyN8V3HQGwcCgrzvsTRcgCc6qupAoW/b8Arp2oPzE8J+V2iL8KCWHIdrggyzAvj/wxOPHUO3zKfNHlWyoVkFI2C901pVVSaaMbhF1ylpqnLs1SBjIzUIhL/PXuPgqdjhIk0u0mlV7barMmL+T3PkSrCVgFUuRVOCRlcl2KlXMGe9scXmNbYrOoYa1xZ84bl88I2w8gj1j1+flLuR0eIZ8seB3cRShPdMaxu1Xljjl79aDEhd9Fy0BloIh4/w/KeeSc5iTrJs="
-        password:
-          secure: "JRMKgRh7h//J5nzLCIs3vOpn9x7ZxaulS6IZPdupaE48JunzjyB81pBQoV6hWUNJynWYmwb0sUiYsd4Lt9ATeTAhIQZFLq+Qgvutjb4VdmoIeFPR8NSpGVPDaT/ArSepO2WAtLembvXuO85PH1gowsXLBszssfKf5f+7O3HSqCVIfBUVbihmeKtwDqxz6NXp4EiwNZDEjwLXfipBHXBv5YS3B1ldUXz+bwq4v8rfY0E7seny43AKd9v+XDxQJ/2QG9J44a1256q9YYLuFPiiVF1jsCpSIELAROnRVsZ2gDax+JBudT82khnyEG6VxZiP+sJhRhnlNjYcOHPazK1kxsUxTit7OMFXWTKs8iLGzROS+ybM3Wi1Jy9VXzJbfaUxwuAV6zuaFN9Yw+tWayQ9uzA+mPFBYTBHKE2iGKxYX55qKtly1evEBx424ch+wxzLOTyK2ljtVI6hJwlXfufsT+B0svbeLMbrktKZGImN8moOzR2GbNedI6lJbungMFZ386mWE6Ognz5YjJHSQ8pfCK5vAWp8O690cJc1IoHCz4ZMI8OTjuQxBmoBCQ44LmfMzyiwkc4hB2otrbQuib0XH3xrtoRx8HByccH0ELmX5K/Wlq0E+4K9mgvN15VBguhYKbdvMAPVxSasQbaZ0tCL9u8EkCrtL+nGaEYpB66gWL0="
-        on:
-          tags: true
+- yadage-validate madgraph_delphes.yml from-github/phenochain

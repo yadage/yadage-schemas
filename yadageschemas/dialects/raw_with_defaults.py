@@ -8,8 +8,6 @@ import logging
 from jsonschema import Draft4Validator, validators
 from ..utils import urlopen, schema_and_refresolver
 
-
-
 log = logging.getLogger(__name__)
 
 def extend_with_default(validator_class):
@@ -116,7 +114,8 @@ def generic_github_url(toplevel):
     if subpath:
         url += '/'+subpath
     return url
-import urllib
+
+import six.moves.urllib as urllib
 def loader(toplevel):
     base_uri = None
 

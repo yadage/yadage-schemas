@@ -161,11 +161,11 @@ def loader(toplevel):
             r = requests.get(uri,**kwargs)
             assert r.ok
             data = r.content
-            return yaml.load(data)
+            return yaml.safe_load(data)
         except:
             try:
                 data = urlopen(uri).read()
-                return yaml.load(data)
+                return yaml.safe_load(data)
             except:
                 log.exception('loading error: cannot find URI %s',uri)
                 raise RuntimeError

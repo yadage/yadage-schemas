@@ -18,7 +18,5 @@ script:
     - echo none
   deploy:
     provider: pypi
-    on:
-      tags: true
-    username: "test"
-    password: "test"
+    user: "Your username"
+    password: "Your password"

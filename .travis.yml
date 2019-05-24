@@ -11,12 +11,9 @@ script:
 - pyflakes yadageschemas
 - yadage-validate madgraph_delphes.yml -t from-github/phenochain
 
-- stage: deploy
-  install:
-    - echo none
-  script:
-    - echo none
-  deploy:
-    provider: pypi
-    user: "Your username"
-    password: "Your password"
+deploy:
+  provider: pypi
+  on:
+    tags: true
+  user: "Your username"
+  password: "Your password"

@@ -10,3 +10,17 @@ script:
 - pip install pyflakes
 - pyflakes yadageschemas
 - yadage-validate madgraph_delphes.yml -t from-github/phenochain
+
+- stage: deploy
+  install:
+    - echo none
+  script:
+    - echo none
+  deploy:
+    provider: pypi
+    on:
+      tags: true
+    username:
+      secure: S5GMfO9A+0M8X+/hgdqLEFm1xf8cqMK82LD0kvOAY4HWQIa7jWWbtgLKTixO8SLTgP7SEFd5Scz7R/dbuWvLVr7vJI9K7NEXzl6HaK8pPmsy3oc1+UUXT+36IL7eLEzp9Cpi1BjP6uxSXaxl9N3PJcQuSLTUjqLDZZ7m786ur2SwESR0TrUTFBXh1Rwq3tWyvJBztbOK4vLs1PfIo7EKcEmsh86WLgRF9lyjcdWOzFbF3jiAr6aCOHD66E0i8lD6e3CZxqw5VU9hQXs0iIvtilpZE7vWFQB5KKGP+gAWCKjfoNqSq8S1LQx2PIfHQpN7i/a7G0W70Uh+fPYTNHKMAdY1V4UOO0SPkzDtO05XZ6ANTVbd+aS5S1Hl/RoG6ht34mlfxorETX6uYPTt9LUn4RNbvPuwI+5sleak6lessZDNU7N+TooXHb0zPgnqF4A8ARQ8KF3ggck/oVT5vCMLXQ2847oGfciN3WOBNz2eY0G0WF0zbLnOWaKMsTOASqqTAhhoM/MuuViK13/XQBo3ajABKMRooosYP1aKXc4onzEHeZd6Q5QZkB8gJEXWJiaaQO6it8eXmZoJTZZQMXOytsjCZRm8WhoSm9OSYsu7VUMl6VeLdompUCUQdfsLnujZajyARQfjCsnx+vSEpWvFjingZDBs0Jg5xjHWOw6UoW4=
+    password:
+      secure: sZzqg9yLA6r2wtXQ+LjOaU8u+nvScVK1n9lBXrJLMvS/aP1lg3rvTHJvT3dzShX8ZOwnoaYffToUuiM3FSK+3ynnZC7JDqCbF+jN1fUZCci4B2+XqT6hok3UAmb8PtuaWI60X0NJlqr+9wq+dbWO4QK2j0PGDSgmhRIw7majRBXCyKr9vSiU3O6w/Lok7yHAotorU9NDxOnIC0VExdN0q+mzEp/HkzmcOWF7Hw6IhCrmSPuj0TtR9f50sKWKeAPpdRK7/fBmVqXKbsiI1h2NrlM4uF9h2VKZOldSig7uyKCer3J/zVb78BYIMmEQ/A11lLldAugSZ4aUmV9JSdu5bn/RfMqNvda1v4zOm2AG3ZslVencD6GEpAPUuUbkRCShN820Q/tPilzdSXGghiwQaFfm3UDldQCZvejtHViaukqbvblfMGyINMXUaBLmk/QQV+JhwzM/DWT34yspdctSmLHt0ycxcAwpFSY0NrWFIlrZH8ZWBrzUlqRFVi/LHmBKKT8FS8E5m/Hmenwr1NO2F9jTZNPTeIVhBRi5VkDOu4FBpPVMs6Ybmi55t8Q5GYauGLaqf8esxPMETbPt+tjgzVsun4X0A7Z3+P6YhuuALTpJA6Nhv3oWUA3fe4e6BTHTjwxXN5LwlcE/y2DFd13Gw8om4CncA3kcNCvOP/4Nx8I=

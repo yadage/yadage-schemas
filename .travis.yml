@@ -22,8 +22,8 @@ jobs:
       - echo none
       deploy:
         provider: pypi
-#        on:
-#          tags: true
+        on:
+          tags: true
         user:
           secure: "OISXG54XfeK2gFnLYmWcVjdLwSwNr4u9ynRG7fV7beu0fZu8eDGQn/BHJWkwPQCdXc6tdp1Rrgdh/Nt11gxnRF4PuOxU0iTRyOVk3cxp4QeOy0TeDeNmjUi/zbDrK+Vtl8KpoMjsUbtAd3qAdoblofQtc2AURLL89FxVccHuiRJAH3Zl7bkEKLdezsVxbX0OWO51vUxea71IFy8tjIoJ9ftYFrkNoWlhm4U12WDjBUR0+xDxU85inGGRX0QzoYkenYYXcYY9UfAH/0CNOmQFZ8AKQBXidSf5wf3KRReckpP9DkZIHtc2aGUh8t9KjP+dXmpk9s+sveF/n5/xD9al9YeELc9yVICuhXcxaxvKSP+irYb2qZ0y3+6I9x/AjzFyauj/283o4ZozHs7rPpyNfh5MAhhy3v4xqIkGucUAK/61voHzT92BN+pLEcwMGrJol+Ly/GCVgJwRVdXZaTJPZrl16hzRuTfbM+fUXaM8FeTLMXfJcxiKjKq+HIoIJteCmWBwBJzmOe727a6DE7yEz3VkH82SIiTd8g7jMGvdN3Zh9LwDOYlP1WNhehhF6oJ2PvVyk1hbftGcWBpV7qXA+sQW6Df3FHW/yZC0RqrtKksk0epK2H4gaby6Wq8ASFCTNwS78f41XG7/PC9meJxoBU5nT29XiC7Hagoimb4uKEQ="
         password:

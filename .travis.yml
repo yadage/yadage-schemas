@@ -22,7 +22,7 @@ jobs:
       - echo none
       deploy:
         provider: pypi
-        on:
-          tags: true
-        user: "Your username"
-        password: "Your password"
+#        on:
+#          tags: true
+        user: secure: "OISXG54XfeK2gFnLYmWcVjdLwSwNr4u9ynRG7fV7beu0fZu8eDGQn/BHJWkwPQCdXc6tdp1Rrgdh/Nt11gxnRF4PuOxU0iTRyOVk3cxp4QeOy0TeDeNmjUi/zbDrK+Vtl8KpoMjsUbtAd3qAdoblofQtc2AURLL89FxVccHuiRJAH3Zl7bkEKLdezsVxbX0OWO51vUxea71IFy8tjIoJ9ftYFrkNoWlhm4U12WDjBUR0+xDxU85inGGRX0QzoYkenYYXcYY9UfAH/0CNOmQFZ8AKQBXidSf5wf3KRReckpP9DkZIHtc2aGUh8t9KjP+dXmpk9s+sveF/n5/xD9al9YeELc9yVICuhXcxaxvKSP+irYb2qZ0y3+6I9x/AjzFyauj/283o4ZozHs7rPpyNfh5MAhhy3v4xqIkGucUAK/61voHzT92BN+pLEcwMGrJol+Ly/GCVgJwRVdXZaTJPZrl16hzRuTfbM+fUXaM8FeTLMXfJcxiKjKq+HIoIJteCmWBwBJzmOe727a6DE7yEz3VkH82SIiTd8g7jMGvdN3Zh9LwDOYlP1WNhehhF6oJ2PvVyk1hbftGcWBpV7qXA+sQW6Df3FHW/yZC0RqrtKksk0epK2H4gaby6Wq8ASFCTNwS78f41XG7/PC9meJxoBU5nT29XiC7Hagoimb4uKEQ="
+        password: secure: "tmICnVIPteXFC86fgFr0jcnBOAmYRVRKrZXbw+sM0An2qVsPMP6wdC14DIpuy3/GIDTdMK3u0hks2d2UQWWdCRL8P8kPQrGkGzlkmJGyWniepTy2rLtPJrVXKe0+C6KmNFTJM/MUHXnKf1Gv3BUV8LEBvtjjn4PtGaVLI5AvusT+aG1482tGqSR+5E/VMdD7Qgvt4fRYyGf/kr9KOA33ZmlP8FzX0I+A+e3rR9RNkjFVXYfeVqIru52ghMQ6ULQepTqwLSVE2KlXZfQCrMImaXPaSvW1cnmw0YZt4h1dI1YWZwSM/Mp1TmVWubfqi57YDsQcNR+xxJmBRv23OGopsRFepIXIUUGT4jxManlQm6NeVhhk/0zBP3N0sbDZ2SwMPjJ02NRIb1zaZgWvuKMnuTZSX6YHHiDeMfIeAN3Nt3FEJSOwkjc4MZGnyLtoRFulVypMWLcRDH5+PYNEO//MzJtF3uFE/mDTXOzuCiiDPyme2mA0YmQ0Na2KZWY8SYPpsGJQQk89VRtEEv8LmErUnV3KZbooVjB12A8q28K4hoiWJtHz499RfyQ/l0uqCeuWlaPw6Z1ZLS7s5RI5/YHlj2ejAv7LYtyTYOoW1UwQsYJHj5wNFfgtU1QrxAed6eUn0B60fHHoPdlYvQRuYUj6t7yjfsz+aI6iq7NuvttSUZs="

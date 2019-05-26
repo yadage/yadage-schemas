@@ -6,6 +6,11 @@ python:
 - '3.5'
 - '3.6'
 
+install:
+- echo ok
+script:
+- echo ok
+
 jobs:
   include:
     - stage: build

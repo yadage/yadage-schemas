@@ -1,19 +1,23 @@
 language: python
+
 python:
 - '2.7'
 - '3.4'
 - '3.5'
 - '3.6'
-install:
-- pip install -e.
-script:
-- pip install pyflakes
-- pyflakes yadageschemas
-- yadage-validate madgraph_delphes.yml -t from-github/phenochain
 
-deploy:
-  provider: pypi
-  on:
-    tags: true
-  user: "Your username"
-  password: "Your password"
+jobs:
+  include:
+    - stage: build
+      install:
+      - pip install -e.
+      script:
+      - pip install pyflakes
+      - pyflakes yadageschemas
+      - yadage-validate madgraph_delphes.yml -t from-github/phenochain
+      deploy:
+        provider: pypi
+        on:
+          tags: true
+        user: "Your username"
+        password: "Your password"

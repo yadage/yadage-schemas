@@ -7,19 +7,19 @@ python:
 - '3.6'
 
 install:
-- echo ok
+- pip install -e.
 script:
-- echo ok
+- pip install pyflakes
+- pyflakes yadageschemas
+- yadage-validate madgraph_delphes.yml -t from-github/phenochain
 
 jobs:
   include:
-    - stage: build
+    - stage: deploy
       install:
-      - pip install -e.
+      - echo none
       script:
-      - pip install pyflakes
-      - pyflakes yadageschemas
-      - yadage-validate madgraph_delphes.yml -t from-github/phenochain
+      - echo none
       deploy:
         provider: pypi
         on:

@@ -14,6 +14,7 @@ setup(
         'requests[security]>=2.9',
         'jsonschema',
         'click',
+        'six>=1.4.0',  # six.moves added in six v1.4.0
     ],
       extras_require = {
         'develop': [

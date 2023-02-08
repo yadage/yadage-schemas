@@ -6,6 +6,8 @@ setup(
     name = 'yadage-schemas',
     version = '0.10.7',
     description = 'schemas for yadage and packtivity',
+    long_description = "README.md",
+    long_description_content_type = "text/markdown",
     include_package_data = True,
     packages = find_packages(),
     # Support Python 3.6+ but keep legacy support for Python 2.7 until 2022

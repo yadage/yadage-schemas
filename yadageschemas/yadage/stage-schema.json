@@ -8,7 +8,7 @@
       "type": "string"
     },
     "dependencies": {
-      "type": "object",
+      "type": "array",
       "oneOf":[
         {"$ref":"predicates/jsonpathready-schema.json#"},
         {"$ref":"predicates/exprfulfilled-schema.json#"}

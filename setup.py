@@ -7,7 +7,7 @@ setup(
     author = 'Lukas Heinrich',
     author_email = 'lukas.heinrich@gmail.com',
     name = 'yadage-schemas',
-    version = '0.10.7',
+    version = '0.10.8',
     description = 'schemas for yadage and packtivity',
     long_description = long_description,
     long_description_content_type = "text/markdown",

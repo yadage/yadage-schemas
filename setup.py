@@ -8,8 +8,8 @@ setup(
     description = 'schemas for yadage and packtivity',
     include_package_data = True,
     packages = find_packages(),
-    # Support Python 3.7+ but keep legacy support for Python 2.7 until 2022
-    python_requires=">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*, !=3.6.*",
+    # Support Python 3.6+ but keep legacy support for Python 2.7 until 2022
+    python_requires=">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*",
     install_requires = [
         'jsonref',
         'pyyaml',

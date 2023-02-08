@@ -14,7 +14,7 @@ setup(
         'jsonref',
         'pyyaml',
         'requests[security]>=2.9',
-        'jsonschema',
+        'jsonschema<=4.9.1',  # c.f. https://github.com/yadage/yadage-schemas/issues/38
         'click',
         'six>=1.4.0',  # six.moves added in six v1.4.0
     ],

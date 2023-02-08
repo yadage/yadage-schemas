@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
-from pathlib import Path
-this_directory = Path(__file__).parent
+with open("README.md", encoding="utf-8") as read_file:
+    long_description = read_file.read()
 
 setup(
     author = 'Lukas Heinrich',
@@ -9,7 +9,7 @@ setup(
     name = 'yadage-schemas',
     version = '0.10.7',
     description = 'schemas for yadage and packtivity',
-    long_description = (this_directory / "README.md").read_text(),
+    long_description = long_description,
     long_description_content_type = "text/markdown",
     include_package_data = True,
     packages = find_packages(),

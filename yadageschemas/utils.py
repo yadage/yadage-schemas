@@ -28,7 +28,7 @@ def schemabase_uri(schemadir):
     if schemadir == None:
         schemabase = 'file://'+os.path.abspath(default_schemadir)
     elif schemadir=='from-github':
-        schemabase = 'https://raw.githubusercontent.com/lukasheinrich/cap-schemas/master/schemas'
+        schemabase = 'https://raw.githubusercontent.com/yadage/yadage-schemas/main/schemas'
     else:
         schemabase = 'file://'+os.path.abspath(schemadir)
     return schemabase

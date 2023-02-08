@@ -105,7 +105,7 @@ def generic_github_url(toplevel):
         repo, branch = repo
     else:
         repo = repo[0]
-        branch = 'master'
+        branch = 'main'
 
     url = 'https://raw.githubusercontent.com/{repo}/{branch}'.format(
         repo = repo,
@@ -151,7 +151,7 @@ def loader(toplevel):
                 repo = urllib.parse.quote(d['repo'],safe=''),
                 path = urllib.parse.quote(d['subpath']+path, safe=''),
                 ref = urllib.parse.quote(d['ref'],safe='')
-            ) 
+            )
         try:
             log.debug('trying to get uri %s',uri)
             if 'YADAGE_SCHEMA_LOAD_TOKEN' in os.environ:

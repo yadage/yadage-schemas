@@ -1,12 +1,15 @@
 from setuptools import setup, find_packages
 
+with open("README.md") as read_file:
+    long_description = read_file.read()
+
 setup(
     author = 'Lukas Heinrich',
     author_email = 'lukas.heinrich@gmail.com',
     name = 'yadage-schemas',
     version = '0.10.7',
     description = 'schemas for yadage and packtivity',
-    long_description = "README.md",
+    long_description = long_description,
     long_description_content_type = "text/markdown",
     include_package_data = True,
     packages = find_packages(),

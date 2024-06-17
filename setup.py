@@ -4,8 +4,8 @@ with open("README.md") as read_file:
     long_description = read_file.read()
 
 setup(
-    author = 'Lukas Heinrich',
-    author_email = 'lukas.heinrich@gmail.com',
+    author = 'Lukas Heinrich, Matthew Feickert',
+    author_email = 'lukas.heinrich@gmail.com, matthew.feickert@cern.ch',
     name = 'yadage-schemas',
     version = '0.11.0',
     description = 'schemas for yadage and packtivity',

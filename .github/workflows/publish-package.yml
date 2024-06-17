@@ -17,10 +17,17 @@ on:
         - false
         - true
 
+permissions:
+  contents: read
+
 jobs:
   build-and-publish:
     name: Build and publish Python distro to (Test)PyPI
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      attestations: write
+
     steps:
     - uses: actions/checkout@v4
       with:
@@ -44,6 +51,13 @@ jobs:
     - name: Build a sdist and a wheel
       run: |
         python -m build .
+
+    - name: Generate artifact attestation for sdist and wheel
+      # If publishing to PyPI
+      if: github.event_name == 'release' && github.event.action == 'published' && github.repository == 'yadage/yadage-schemas'
+      uses: actions/attest-build-provenance@534b352d658f90498fd148d231fdbf88f3886a3a # v1.3.1
+      with:
+        subject-path: "dist/yadage_schemas-*"
 
     - name: Verify the distribution
       run: twine check dist/*

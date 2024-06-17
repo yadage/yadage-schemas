@@ -18,7 +18,7 @@ setup(
         'jsonref',
         'pyyaml',
         'requests[security]>=2.9',
-        'jsonschema<=4.9.1',  # c.f. https://github.com/yadage/yadage-schemas/issues/38
+        'jsonschema>=4.10.0',  # c.f. https://github.com/yadage/yadage-schemas/issues/38
         'click',
         'six>=1.4.0',  # six.moves added in six v1.4.0
         'importlib-resources>=5.10;python_version<"3.9"' # for accessing package filepaths

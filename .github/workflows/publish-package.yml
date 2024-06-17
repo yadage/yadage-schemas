@@ -17,10 +17,17 @@ on:
         - false
         - true
 
+permissions:
+  contents: read
+
 jobs:
   build-and-publish:
     name: Build and publish Python distro to (Test)PyPI
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      attestations: write
+
     steps:
     - uses: actions/checkout@v4
       with:

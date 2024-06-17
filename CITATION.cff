@@ -10,10 +10,10 @@ authors:
   given-names: "Matthew"
   orcid: "https://orcid.org/0000-0003-4124-7862"
   affiliation: "University of Wisconsin-Madison"
-title: "yadage-schemas: v0.11.0"
-version: 0.11.0
+title: "yadage-schemas: v0.11.1"
+version: 0.11.1
 doi: 10.5281/zenodo.309326
-repository-code: "https://github.com/yadage/yadage-schemas/releases/tag/v0.11.0"
+repository-code: "https://github.com/yadage/yadage-schemas/releases/tag/v0.11.1"
 url: "https://github.com/yadage/yadage-schemas/"
 keywords:
   - python
